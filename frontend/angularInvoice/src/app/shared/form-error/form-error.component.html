@@ -1,0 +1,20 @@
+@if (control && errors && !control.untouched) {
+  @if (errors['required']) {
+    <span class="error">Required</span>
+  }
+  @if (errors['minlength']) {
+    <span class="error">Minimum {{ errors['minlength'].requiredLength }} items</span>
+  }
+  @if (errors['maxlength']) {
+    <span class="error">Maximum {{ errors['maxlength'].requiredLength }} items</span>
+  }
+  @if (errors['min']) {
+    <span class="error">Minimum {{ errors['min'].min }}</span>
+  }
+  @if (errors['max']) {
+    <span class="error">Maximum {{ errors['max'].max }}</span>
+  }
+  @if (errors['email']) {
+    <span class="error">Invalid email</span>
+  }
+}

@@ -1,0 +1,26 @@
+<form [formGroup]="updateForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="login">Login</label>
+    <input id="login" pInputText formControlName="login"/>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" pInputText formControlName="email"/>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input id="password" type="password" pInputText formControlName="password"/>
+  </div>
+  @if (errorMsg){
+    <div>
+      <p-message severity="info" variant="simple" size="small">{{errorMsg}}</p-message>
+    </div>
+  }
+  <div class="flex gap-2">
+    <p-button size="small" type="submit" icon="pi pi-check" [rounded]="true" [text]="true"
+              [disabled]="updateForm.invalid"></p-button>
+    <p-button size="small" type="button" icon="pi pi-times" [rounded]="true" [text]="true" severity="danger"
+              (click)="close.emit()"></p-button>
+  </div>
+</form>
+

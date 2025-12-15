@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Connexion</h1>
+<mat-dialog-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" required />
+
+      <mat-error *ngIf="loginForm.get('login')?.hasError('required')">Ce champ est requis</mat-error>
+
+      <mat-error *ngIf="loginForm.get('login')?.hasError('login')">Entrez un nom d'utilisateur valide</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password" required />
+      <mat-error *ngIf="loginForm.get('password')?.invalid">Ce champ est requis</mat-error>
+    </mat-form-field>
+
+
+    <div *ngIf="errorMessage" class="error-message" style="color: red;">
+      {{ errorMessage }}
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Annuler</button>
+  <button mat-button color="primary" [disabled]="loginForm.invalid" (click)="onSubmit()">Se connecter</button>
+</mat-dialog-actions>

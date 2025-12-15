@@ -1,0 +1,21 @@
+<p-button label="Créer un client" severity="success" routerLink="/customer/create"></p-button>
+
+<div class="main-container">
+  <div class="content">
+    @for (customer of customers; track customer.id) {
+      <app-customer-card
+        [customer]="customer"
+        (customerDeleted)="loadCustomers()">
+      </app-customer-card>
+    }
+  </div>
+
+  <div class="paginator-container">
+    <p-paginator
+      [first]="(currentPage - 1) * pageSize"
+      [rows]="pageSize"
+      [totalRecords]="totalPages * pageSize"
+      (onPageChange)="onPageChange($event)">
+    </p-paginator>
+  </div>
+</div>

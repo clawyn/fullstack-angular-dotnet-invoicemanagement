@@ -1,0 +1,30 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color:darkslategray;
+  color: white;
+}
+@media (max-width: 768px) {
+  mat-toolbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: darkslategray;
+  }
+
+
+  button[mat-button] {
+    margin: 4px 0;
+    width: auto;
+  }
+
+  .example-spacer {
+    display: none;
+  }
+}

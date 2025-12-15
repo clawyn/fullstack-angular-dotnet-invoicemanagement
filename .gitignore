@@ -1,0 +1,58 @@
+# -----------------------
+# Backend / .NET / Rider
+# -----------------------
+/shelf/
+/workspace.xml
+/.idea.InvoiceManagement.iml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# -----------------------
+# Frontend / Angular / Node
+# -----------------------
+dist/
+tmp/
+out-tsc/
+bazel-out/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+.connect.lock
+coverage/
+libpeerconnection.log
+testem.log
+typings/
+
+# System files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,59 @@
+.invoice {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.p-card header {
+  text-align: center;
+}
+
+.p-card subheader {
+  text-align: center;
+}
+
+.invoice-details,
+.products-list,
+.invoice-total {
+  text-align: center;
+}
+
+.products-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.products-list li {
+  margin-bottom: 1rem;
+}
+
+.product-card {
+  background: #eaeaea;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  color: #444;
+  align-items: center;
+}
+
+.invoice-total {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-display {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+

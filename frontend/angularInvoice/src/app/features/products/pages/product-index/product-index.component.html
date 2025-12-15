@@ -1,0 +1,21 @@
+<p-button label="Créer un produit" severity="success" routerLink="/product/create"></p-button>
+
+<div class="main-container">
+  <div class="content">
+    @for (product of products; track product.id){
+      <app-product-card
+        [product]="product"
+        (productDeleted)="loadProducts()">
+      </app-product-card>
+    }
+  </div>
+
+  <div class="paginator-container">
+    <p-paginator
+      [first]="(currentPage - 1) * pageSize"
+      [rows]="pageSize"
+      [totalRecords]="totalPages * pageSize"
+      (onPageChange)="onPageChange($event)">
+    </p-paginator>
+  </div>
+</div>

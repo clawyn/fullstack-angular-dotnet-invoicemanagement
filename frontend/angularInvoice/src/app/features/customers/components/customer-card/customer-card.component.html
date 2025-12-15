@@ -1,0 +1,32 @@
+<div class="customer p-card">
+  <p-card class="customer-item">
+    <div class="all-card">
+      <h3>{{ customer.name }}</h3>
+      <p><strong>Nom :</strong> {{ customer.name }}</p>
+    </div>
+    <br/>
+    <p><strong>Email :</strong> {{ customer.email }}</p>
+
+    <br/><br/>
+    <div class="button-display">
+      <button pButton label="Mettre a jour" class="p-button-primary" (click)="update(customer.id)"></button>
+      <button pButton label="Supprimer" class="p-button-danger" (click)="deleteCustomer(customer.id)"></button>
+      <button pButton label="Voir Factures" (click)="toggleInvoices(customer.id.toString())"></button>
+    </div>
+  </p-card>
+
+  <p-card *ngIf="invoicesMap[customer.id]" class="invoice-card">
+    <h4>Factures :</h4>
+    <br>
+    <ul>
+      <li *ngFor="let invoice of invoicesMap[customer.id]">
+        <br>
+        <p>{{ invoice.name }} - {{ invoice.description }} - {{ invoice.workForce }} </p>
+        <br>
+        <div>
+          <p-button label="Voir la facture" severity="success" [routerLink]="['/invoice/card', invoice.id]"></p-button>
+        </div>
+      </li>
+    </ul>
+  </p-card>
+</div>

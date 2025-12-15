@@ -1,0 +1,30 @@
+<div class="product p-card">
+  <p-card class="product-item">
+    <div class="all-card">
+      <h3>{{ product.productName }}</h3>
+    </div>
+
+    @if (product.description) {
+      <strong>Description :</strong> {{ product.description }}
+    }
+    <br/>
+    <p><strong>Categorie :</strong> {{ product.category }}</p>
+    <br/>
+
+    @if (product.specification) {
+      <strong>Description :</strong> {{ product.specification }}
+    }
+
+    <br/>
+
+    <p><strong>Prix :</strong> {{ product.price }}</p>
+    <br/>
+    <br/>
+
+    <div *ngIf="userLogin() !== ''" style="display: flex; justify-content: center; gap: 10px;" class="button-display">
+      <button pButton label="Mettre à jour" class="p-button-primary" (click)="update(product.id)"></button>
+      <button pButton label="Supprimer" class="p-button-danger" (click)="deleteProduct(product.id)"></button>
+    </div>
+
+  </p-card>
+</div>

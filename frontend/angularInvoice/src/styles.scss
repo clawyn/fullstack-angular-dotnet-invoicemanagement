@@ -1,0 +1,17 @@
+@import "primeicons/primeicons.css";
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light; // Force le mode clair
+  }
+}
+
+.light-theme {
+  background-color: darkseagreen;
+  color: black;
+}

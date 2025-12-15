@@ -1,0 +1,42 @@
+<div class="update-product">
+  <h3>Update a Customer</h3>
+
+  <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+
+    <p-floatlabel variant="on">
+      <input pInputText id="productName" formControlName="productName"/>
+      <label for="productName">Name</label>
+      <app-form-error [control]="productForm.get('productName')"></app-form-error>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <input pInputText id="description" formControlName="description"/>
+      <label for="description">Description</label>
+      <app-form-error [control]="productForm.get('description')"></app-form-error>
+    </p-floatlabel>
+    <p-floatlabel variant="on">
+      <input pInputText id="category" formControlName="category"/>
+      <label for="category">Category</label>
+      <app-form-error [control]="productForm.get('category')"></app-form-error>
+    </p-floatlabel>
+    <p-floatlabel variant="on">
+      <input pInputText id="specification" formControlName="specification"/>
+      <label for="specification">Specification</label>
+      <app-form-error [control]="productForm.get('specification')"></app-form-error>
+    </p-floatlabel>
+    <p-floatlabel>
+      <p-inputNumber
+        id="price"
+        formControlName="price"
+        mode="decimal"
+        [useGrouping]="false"
+      ></p-inputNumber>
+      <label for="price">Price</label>
+      <app-form-error [control]="productForm.get('price')"></app-form-error>
+    </p-floatlabel>
+
+
+
+    <p-button severity="success" label="Update" type="submit"></p-button>
+  </form>
+</div>

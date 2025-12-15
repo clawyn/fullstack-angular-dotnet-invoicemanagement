@@ -1,0 +1,76 @@
+
+:host .mat-dialog-container {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 2.5rem 2.5rem;
+}
+
+
+.login-container, .register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto auto;
+}
+
+
+
+.mat-dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+button {
+  width: 48%;
+}
+
+
+.close-button {
+  background: transparent;
+  color: #666;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container, .register-container {
+
+  animation: fadeIn 0.3s ease-in-out;
+}
+form {
+  padding: 1rem;
+
+  mat-form-field {
+    margin: 0.5rem;
+    width: 90%;
+  }
+}
+
+

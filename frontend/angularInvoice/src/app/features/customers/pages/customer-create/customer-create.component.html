@@ -1,0 +1,32 @@
+<div class="create-customer">
+  <h3>Create a Customer</h3>
+
+  <form [formGroup]="customerForm" (ngSubmit)="submit()">
+
+    <p-floatlabel variant="on">
+      <input pInputText id="name" formControlName="name"/>
+      <label for="name">Nom</label>
+      <app-form-error [control]="customerForm.get('name')"></app-form-error>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <input pInputText id="address" formControlName="address"/>
+      <label for="address">Adresse</label>
+      <app-form-error [control]="customerForm.get('address')"></app-form-error>
+    </p-floatlabel>
+    <p-floatlabel variant="on">
+      <input pInputText id="email" formControlName="email"/>
+      <label for="address">Email</label>
+      <app-form-error [control]="customerForm.get('email')"></app-form-error>
+    </p-floatlabel>
+    <p-floatlabel variant="on">
+      <input pInputText id="phone" formControlName="phone"/>
+      <label for="phone">Numéro de téléphone</label>
+      <app-form-error [control]="customerForm.get('phone')"></app-form-error>
+    </p-floatlabel>
+
+
+
+    <p-button severity="success" label="créer" type="submit"></p-button>
+  </form>
+</div>

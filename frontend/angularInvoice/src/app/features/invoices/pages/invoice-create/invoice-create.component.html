@@ -1,0 +1,55 @@
+<div class="create-invoice">
+  <h3>Créer une Facture</h3>
+
+  <form [formGroup]="invoiceForm" (ngSubmit)="submit()">
+
+    <p-floatlabel variant="on">
+      <input pInputText id="name" formControlName="name"/>
+      <label for="name">Nom</label>
+      <app-form-error [control]="invoiceForm.get('name')"></app-form-error>
+    </p-floatlabel>
+
+    <p-floatlabel variant="on">
+      <input pInputText id="description" formControlName="description"/>
+      <label for="description">Description</label>
+      <app-form-error [control]="invoiceForm.get('description')"></app-form-error>
+    </p-floatlabel>
+    <p-floatlabel variant="on">
+      <input pInputText id="workForce" formControlName="workForce"/>
+      <label for="workForce">Frais de dossier</label>
+      <app-form-error [control]="invoiceForm.get('workForce')"></app-form-error>
+    </p-floatlabel>
+
+    <select formControlName="customerId" required>
+      <option [ngValue]="null" disabled selected>Choisir un client</option>
+      <option *ngFor="let customer of customersList" [ngValue]="customer.id">
+        {{ customer.name }}
+      </option>
+    </select>
+
+    <div [ngStyle]="{ display: 'flex', alignItems: 'center', gap: '10px' }">
+      <p-inputNumber
+        #quantityInput
+        inputId="quantity"
+        [min]="1"
+        [step]="1"
+        [showButtons]="true">
+      </p-inputNumber>
+
+      <button type="button" (click)="validateQuantity()">Valider la quantité</button>
+    </div>
+
+    <div *ngIf="isQuantityValid" style="margin-top: 10px;">
+      <select (change)="onProductSelect($event)">
+        <option value="" disabled selected>Choisir un produit</option>
+        <option *ngFor="let product of productsList" [value]="product.id">
+          {{ product.productName }}
+        </option>
+      </select>
+    </div>
+
+
+
+    <p-button severity="success" label="Créer" type="submit"></p-button>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="invoice p-card">
+  <p-card *ngIf="invoice" header="{{ invoice.name }}" subheader="Facture Client">
+    <br>
+    <div class="invoice-details">
+      <p><strong>Description :</strong> {{ invoice.description }}</p>
+      <br>
+      <p><strong>Frai de dossier :</strong> {{ invoice.workForce }} €</p>
+    </div>
+    <br>
+    <br>
+    <div class="products-list">
+      <h4>Produits : </h4>
+      <ul>
+        <li *ngFor="let invoiceProduct of invoice.invoiceProducts">
+          <ng-container *ngIf="productDetailsMap[invoiceProduct.productId]; else loading">
+            <div class="product-card">
+              <div class="product-name">
+                {{ productDetailsMap[invoiceProduct.productId].productName }}
+              </div>
+              <div class="product-info">
+                <br>
+                <span><strong>Quantité :</strong> {{ invoiceProduct.quantity }}</span>
+                <span><strong>Prix unitaire :</strong> {{ productDetailsMap[invoiceProduct.productId].price }} €</span>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #loading>
+            <div class="loading-product">Chargement des détails du produit...</div>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+
+    <div class="invoice-total centered-total">
+      <strong>Total :</strong> {{ getTotalAmount() }} €
+    </div>
+
+    <div class="button-display">
+      <button pButton label="Supprimer" class="p-button-danger" (click)="deleteInvoice(invoice.id)"></button>
+    </div>
+  </p-card>
+</div>
