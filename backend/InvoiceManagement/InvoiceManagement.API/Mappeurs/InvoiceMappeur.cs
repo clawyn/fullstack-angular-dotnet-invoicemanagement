@@ -54,7 +54,6 @@ namespace InvoiceManagement.API.Mappeurs
                 WorkForce = i.WorkForce,
                 CustomerId = i.CustomerId,
                 
-                // Mapper les produits
                 InvoiceProducts = i.Products.Select(p => new InvoiceProduct
                 {
                     ProductId = p.ProductId,

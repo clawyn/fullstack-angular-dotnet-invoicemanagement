@@ -8,14 +8,14 @@ namespace InvoiceManagement.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            // Configuration des propriétés de base
-            builder.HasIndex(i => i.ProductName).IsUnique(); // Index unique sur Name
+    
+            builder.HasIndex(i => i.ProductName).IsUnique();
             builder.Property(i => i.ProductName)
-                .IsRequired() // Obligatoire
-                .HasMaxLength(100); // Longueur maximale
+                .IsRequired() 
+                .HasMaxLength(100);
 
             builder.Property(i => i.Description)
-                .HasMaxLength(500); // Longueur maximale de Description
+                .HasMaxLength(500);
             
         }
     }

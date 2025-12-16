@@ -20,19 +20,16 @@ namespace InvoiceManagement.API.Utils
         {
             if (user is null) throw new ArgumentNullException();
 
-            //Creer la Signin key
             SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secret));
 
             SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha512);
 
-            //Creation du payload
             Claim[] claims = new Claim[]
             {
                 new Claim(ClaimTypes.Sid, user.Id.ToString()),
                 new Claim(ClaimTypes.Role,"Admin"),
             };
 
-            //Configuration du token
             JwtSecurityToken token = new JwtSecurityToken(
                 claims: claims,
                 signingCredentials: credentials,
@@ -40,7 +37,6 @@ namespace InvoiceManagement.API.Utils
                 audience: _audience
             );
 
-            //Generation du token
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
 
             return handler.WriteToken(token);

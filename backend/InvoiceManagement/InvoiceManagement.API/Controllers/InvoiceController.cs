@@ -35,7 +35,7 @@ namespace InvoiceManagement.API.Controllers
         }
 
         [HttpPost]
-        //[Authorize("Auth")]
+        [Authorize("Auth")]
         public ActionResult Create([FromBody] InvoiceFormDto form)
         {
             _invoiceService.SaveWithProducts(form.ToInvoice());
@@ -51,7 +51,7 @@ namespace InvoiceManagement.API.Controllers
         }*/
 
         [HttpDelete("{id}")]
-        //[Authorize("Auth")]
+        [Authorize("Auth")]
         public ActionResult Delete([FromRoute] Guid id)
         {
             _invoiceService.Delete(id);
@@ -68,7 +68,6 @@ namespace InvoiceManagement.API.Controllers
                 return BadRequest("Le Customer ID est invalide.");
             }
 
-            // Supposons que ton service récupère les invoices par CustomerId
             var invoices = _invoiceService.GetInvoicesByCustomerId(customerId);
 
             if (invoices == null || !invoices.Any())

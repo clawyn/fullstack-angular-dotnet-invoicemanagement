@@ -61,14 +61,14 @@ export class CustomerCardComponent {
   }
 
   toggleInvoices(customerId: string): void {
-    console.log('Customer ID envoyé au backend:', customerId); // Ajout du log ici
+    console.log('Customer ID envoyé au backend:', customerId);
 
     if (this.invoicesMap[customerId]) {
-      delete this.invoicesMap[customerId]; // toggle off
+      delete this.invoicesMap[customerId];
     } else {
       this._invoiceService.getInvoicesByCustomerId(customerId).subscribe({
         next: (invoices) => {
-          console.log('Réponse reçue du backend:', invoices); // Log de la réponse du backend
+          console.log('Réponse reçue du backend:', invoices);
           this.invoicesMap[customerId] = invoices;
         },
         error: (err) => {

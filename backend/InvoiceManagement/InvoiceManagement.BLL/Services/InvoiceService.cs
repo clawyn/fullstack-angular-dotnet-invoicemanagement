@@ -93,7 +93,6 @@ namespace InvoiceManagement.BLL.Services
                     throw new Exception($"Invoice with name {invoice.Name} already exists");
                 }
 
-                // Calculer d'abord les Amounts AVANT d'appeler Save
                 if (invoice.InvoiceProducts != null && invoice.InvoiceProducts.Any())
                 {
                     foreach (var invoiceProduct in invoice.InvoiceProducts)
@@ -138,9 +137,3 @@ namespace InvoiceManagement.BLL.Services
         }
     }
 }
-
-
-// // public IEnumerable<Invoice> GetInvoicesByCustomerId(Guid customerId)
-// // {
-// //     return _invoiceManagementRepository.FindByCustomerIdWithProducts(customerId);
-// // }

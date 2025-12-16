@@ -59,7 +59,7 @@ namespace InvoiceManagement.API.Middlewares
         {
             var response = new
             {
-                message = message  // Afficher le message réel de l'exception
+                message = message
             };
 
             var responseText = JsonSerializer.Serialize(response);

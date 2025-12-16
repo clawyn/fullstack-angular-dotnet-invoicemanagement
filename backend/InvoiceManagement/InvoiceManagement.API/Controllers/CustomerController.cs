@@ -38,7 +38,7 @@ namespace InvoiceManagement.API.Controllers
         }
 
         [HttpPost]
-        //[Authorize("Auth")]
+        [Authorize("Auth")]
         public ActionResult Create([FromBody] CustomerFormDto form)
         {
             _customerService.Save(form.ToCustomer());
@@ -46,7 +46,7 @@ namespace InvoiceManagement.API.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize("Auth")]
+        [Authorize("Auth")]
         public ActionResult Update([FromRoute] Guid id, [FromBody] CustomerFormDto form)
         {
             _customerService.Update(id, form.ToCustomer());
