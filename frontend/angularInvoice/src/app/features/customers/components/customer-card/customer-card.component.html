@@ -17,16 +17,20 @@
 
   <p-card *ngIf="invoicesMap[customer.id]" class="invoice-card">
     <h4>Factures :</h4>
-    <br>
-    <ul>
+
+    <ul *ngIf="invoicesMap[customer.id].length > 0; else noInvoices">
       <li *ngFor="let invoice of invoicesMap[customer.id]">
-        <br>
-        <p>{{ invoice.name }} - {{ invoice.description }} - {{ invoice.workForce }} </p>
-        <br>
-        <div>
-          <p-button label="Voir la facture" severity="success" [routerLink]="['/invoice/card', invoice.id]"></p-button>
-        </div>
+        <p>{{ invoice.name }} - {{ invoice.description }} - {{ invoice.workForce }}</p>
+        <p-button
+          label="Voir la facture"
+          severity="success"
+          [routerLink]="['/invoice/card', invoice.id]">
+        </p-button>
       </li>
     </ul>
+
+    <ng-template #noInvoices>
+      <p class="no-invoice-message">Ce client n’a aucune facture.</p>
+    </ng-template>
   </p-card>
 </div>

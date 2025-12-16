@@ -65,17 +65,16 @@ export class CustomerCardComponent {
 
     if (this.invoicesMap[customerId]) {
       delete this.invoicesMap[customerId];
-    } else {
-      this._invoiceService.getInvoicesByCustomerId(customerId).subscribe({
-        next: (invoices) => {
-          console.log('Réponse reçue du backend:', invoices);
-          this.invoicesMap[customerId] = invoices;
-        },
-        error: (err) => {
-          console.error('Erreur lors du chargement des invoices du client:', err);
-          alert(`Erreur: ${err.error.message || 'Une erreur est survenue lors du chargement des invoices'}`);
-        }
-      });
-    }
+       return;
+    } 
+
+   this._invoiceService.getInvoicesByCustomerId(customerId).subscribe({
+      next: (invoices) => {
+        this.invoicesMap[customerId] = Array.isArray(invoices) ? invoices : [];
+      },
+      error: () => {
+        this.invoicesMap[customerId] = [];
+      }
+    });
   }
 }
